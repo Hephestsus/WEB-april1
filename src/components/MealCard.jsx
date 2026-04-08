@@ -14,7 +14,7 @@ export default function MealCard({ meal, addToCart }) {
       <h3>{meal.strMeal}</h3>
 
       <button onClick={handleAdd}>
-        🛒
+        
       </button>
     </div>
   );

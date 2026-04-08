@@ -1,24 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../services/cart";
 
-export default function MealCard({ meal }) {
+export default function MealCard({ meal, addToCart }) {
   const navigate = useNavigate();
 
   const handleAdd = (e) => {
-    e.stopPropagation(); // ❗ чтобы не сработал переход
+    e.stopPropagation();
     addToCart(meal);
   };
 
   return (
-    <div
-      className="meal-card"
-      onClick={() => navigate(`/recipe/${meal.idMeal}`)}
-    >
-      <img src={meal.strMealThumb} />
+    <div onClick={() => navigate(`/recipe/${meal.idMeal}`)}>
       <h3>{meal.strMeal}</h3>
 
       <button onClick={handleAdd}>
-        В корзину
+        🛒
       </button>
     </div>
   );
